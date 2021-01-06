@@ -1,0 +1,30 @@
+# https://kubernetes.io/docs/concepts/workloads/pods/
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "myapp"
+  namespace: default
+  labels:
+    app: "myapp"
+spec:
+  containers:
+  - name: myapp
+    image: "debian-slim:latest"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    ports:
+    - containerPort: 80
+      name:  http
+    volumeMounts:
+    - name: myvol
+      mountPath: "/tmp/my_config"
+  volumes:
+    - name: myvol
+      persistentVolumeClaim:
+        claimName: myapp
+  restartPolicy: Always
