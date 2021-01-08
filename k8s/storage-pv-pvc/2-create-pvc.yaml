@@ -1,19 +1,11 @@
-# https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: myapp
-  namespace: default
-  labels:
-    app: myapp
+  name: azurefile
 spec:
-  # AKS: default,managed-premium
-  # GKE: standard
-  # EKS: gp2 (custom)
-  # Rook: rook-ceph-block,rook-ceph-fs
-  storageClassName: local-storage
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteMany
+  storageClassName: azurefile
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi

@@ -1,30 +1,24 @@
-# https://kubernetes.io/docs/concepts/workloads/pods/
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "myapp"
-  namespace: default
+  name: testpod
   labels:
-    app: "myapp"
+    type: testapp
 spec:
   containers:
-  - name: myapp
-    image: "debian-slim:latest"
+  - image: piotrzan/blazorindocker
+    name: testpod
     resources:
-      limits:
-        cpu: 200m
-        memory: 500Mi
       requests:
         cpu: 100m
-        memory: 200Mi
-    ports:
-    - containerPort: 80
-      name:  http
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
-    - name: myvol
-      mountPath: "/tmp/my_config"
+      - name: azure
+        mountPath: /mnt/azure
   volumes:
-    - name: myvol
-      persistentVolumeClaim:
-        claimName: myapp
-  restartPolicy: Always
+  - name: azure
+    persistentVolumeClaim:
+        claimName: azurefile

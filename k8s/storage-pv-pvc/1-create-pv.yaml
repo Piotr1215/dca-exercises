@@ -1,22 +1,14 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: example-pv
+  name: azurefile
 spec:
   capacity:
-    storage: 2Gi
-  volumeMode: Filesystem
+    storage: 5Gi
   accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
-    path: /mnt/disks/ssd1
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - example-node
+    - ReadWriteMany
+  storageClassName: azurefile
+  azureFile:
+    secretName: azure-secret
+    shareName: piotr-share
+    readOnly: false
