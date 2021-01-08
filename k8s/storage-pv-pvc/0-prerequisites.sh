@@ -10,5 +10,5 @@ echo $AKS_PERS_STORAGE_ACCOUNT_NAME
 echo $STORAGEKEY
 
 # Create secret to enable the pod to mount the PVC
-kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME \
-                                           --from-literal=azurestorageaccountkey=$STORAGEKEY
+k create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME \
+                                     --from-literal=azurestorageaccountkey=$STORAGEKEY
