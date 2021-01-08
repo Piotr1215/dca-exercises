@@ -4,7 +4,7 @@ AKS_PERS_STORAGE_ACCOUNT_NAME="<storage account name>"
 
 # Retrieve storage key
 STORAGEKEY=$(az storage account keys list --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --resource-group $RG \
-             --query "[?keyName == 'key1'].value" -o tsv)
+                                          --query "[?keyName == 'key1'].value" -o tsv)
 
 echo $AKS_PERS_STORAGE_ACCOUNT_NAME
 echo $STORAGEKEY
