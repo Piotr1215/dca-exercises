@@ -29,5 +29,5 @@ k exec -it testpod -- cat /mnt/azure/testfile.txt
 # 3. Enable data sharing between pods
 
 # Create another pode bound to the same perisstent volume
-
+k apply -f https://raw.githubusercontent.com/Piotr1215/dca-exercises/master/k8s/storage-pv-pvc/4-create-pod2.yaml
 
