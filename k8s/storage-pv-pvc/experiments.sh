@@ -28,6 +28,17 @@ k exec -it testpod -- cat /mnt/azure/testfile.txt
 
 # 3. Enable data sharing between pods
 
-# Create another pode bound to the same perisstent volume
+# Create another pod bound to the same persistent volume
 k apply -f https://raw.githubusercontent.com/Piotr1215/dca-exercises/master/k8s/storage-pv-pvc/4-create-pod2.yaml
+
+# Open new Azure Cloud session and exec into testpod
+k exec -it testpod -- sh
+cd /mnt/azure/
+ls
+
+# Watch for file changes
+watch -n1 'ls ./*'
+
+# Swap to another shell and create file in testpod2
+k exec -it testpod2 -- touch /mnt/azure/new_testfile.txt
 
