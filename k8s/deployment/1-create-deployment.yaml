@@ -15,7 +15,7 @@ spec:
         type: test-deployment
     spec:
       containers:
-      - image: piotrzan/nginx-demo:blue
+      - image: piotrzan/nginx-demo:green
         name: nginx-test
         resources:
           requests:
