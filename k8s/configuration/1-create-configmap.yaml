@@ -5,12 +5,8 @@ metadata:
 data:
   # property-like keys; each key maps to a simple value
   deployment_env: "DEV"
-  config_name: "config.properties"
 
   # file-like keys
   api.properties: |
     api.debug=true
     api.code=555
-  ui.properties: |
-    ui.debug=true
-    ui.title=demo
