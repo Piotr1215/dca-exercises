@@ -1,12 +1,12 @@
 bases:
   - ../../base
 
-namePrefix: prod-
+namePrefix: dev-
 
-namespace: production
+namespace: dev-demo
 
 commonLabels:
-  env: prod
+  env: dev
 
 patches:
   - replicas-count.yaml
@@ -14,4 +14,3 @@ patches:
 patchesStrategicMerge:
   - config-demo.yaml
   - set-resources.yaml
-
