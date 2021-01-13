@@ -9,9 +9,8 @@ data:
 
   # file-like keys
   api.properties: |
-    api.debug=false
+    api.debug=true
     api.code=555
   ui.properties: |
-    ui.color=purple
+    ui.debug=true
     ui.title=demo
-    ui.option.set=true
