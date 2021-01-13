@@ -6,7 +6,10 @@ namePrefix: dev-
 namespace: development
 
 commonLabels:
-  env: prod
+  env: dev
 
 patches:
   - replicas-count.yaml
+
+patchesStrategicMerge:
+  - config-demo.yaml

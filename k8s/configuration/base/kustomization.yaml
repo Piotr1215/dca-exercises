@@ -1,0 +1,8 @@
+resources:
+  - nginx-demo-deployment.yaml
+  - namespaces.yaml
+
+configMapGenerator:
+- name: config-demo
+  literals:
+    - deployment_env=dev

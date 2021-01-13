@@ -10,3 +10,8 @@ commonLabels:
 
 patches:
   - replicas-count.yaml
+
+patchesStrategicMerge:
+  - config-demo.yaml
+  - set-resources.yaml
+
