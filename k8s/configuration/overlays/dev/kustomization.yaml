@@ -13,3 +13,4 @@ patches:
 
 patchesStrategicMerge:
   - config-demo.yaml
+  - set-resources.yaml
