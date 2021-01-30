@@ -5,7 +5,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    type: test-deployment2
+    type: blue-test
   ports:
       # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
     - port: 8080
@@ -14,18 +14,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-test2
+  name: blue-test
   labels:
-    type: test-deployment2
+    type: blue-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      type: test-deployment2
+      type: blue-test
   template:
     metadata:
       labels:
-        type: test-deployment2
+        type: blue-test
     spec:
       containers:
       - image: piotrzan/nginx-demo:blue
